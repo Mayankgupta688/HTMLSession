@@ -1,0 +1,59 @@
+<html>
+    <body>
+
+        <link href="./styles/otherClass.css"  rel="stylesheet"/>
+        <link href="./styles/otherClass.css"  rel="stylesheet"/>
+        <link href="./styles/otherClass.css"  rel="stylesheet"/>
+        <link href="./styles/otherClass.css"  rel="stylesheet"/>
+        <link href="./styles/otherClass.css"  rel="stylesheet"/>
+        
+        <style>
+
+            h1 {
+                color: aquamarine;
+            }
+
+            .child-component.other-abc {
+                color: aqua;
+            }
+
+            h1.child-component.other-abc.other-class#main_header {
+                color: yellow;
+            }
+
+            .main-root {
+                color: blue;
+                font-size: 50px;
+            }
+
+            .other-class {
+                color: brown;
+            }
+
+            .other-abc {
+                color: yellow;
+            }
+
+            .child-component {
+                color: red;
+            }
+
+            .container {
+                color: pink !important;
+            }
+
+        </style>
+        <div class="container">
+            <div class="main-root">
+                <h1 style="color: grey;" id="main_header" class="child-component other-class other-abc">This is the Heading</h1>
+                <h2>This is Other Heading</h2>
+
+                <h3>This is my Other H3 Header...</h3>
+            </div>
+        </div>
+
+        <script>
+            // document.getElementById("main_header").style.color = "purple";
+        </script>
+    </body>
+</html>
