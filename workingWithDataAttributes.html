@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Working with Data Attributes</title>
+  </head>
+  
+  <body>
+
+    <style>
+      strong {
+        padding: 5px; border: 1px solid red;
+        display: block;
+        margin: 10px;
+      }
+    </style>
+
+    <script>
+      function strongElementClicked(event) {
+        alert("User to Delete is: " + event.target.attributes["data-customname"].value);
+      }
+    </script>
+
+    <div>
+      <strong style="padding: 5px; border: 1px solid red;" 
+              class="attr-class" >
+        This is a custom Attribute Holder...
+        <input type="button" data-customname="Mayank" 
+               data-age="10" 
+               data-designation="Designation"  value="Delete" style="float: right"
+               onclick="strongElementClicked(event)" />
+
+      </strong>
+  
+      <strong style="padding: 5px; border: 1px solid red;"
+              class="attr-class" 
+              onclick="strongElementClicked(event)">
+        This is a custom Attribute Holder...
+        <input type="button" data-customname="Ankit" 
+               data-age="10" 
+               data-designation="Designation"  value="Delete" style="float: right"
+               onclick="strongElementClicked(event)" />
+      </strong>
+  
+      <strong style="padding: 5px; border: 1px solid red;" 
+              class="attr-class" 
+              onclick="strongElementClicked(event)">
+        This is a custom Attribute Holder...
+        <input type="button" data-customname="Anshul" 
+               data-age="10" 
+               data-designation="Designation"  value="Delete" style="float: right"
+               onclick="strongElementClicked(event)" />
+      </strong>
+    </div>
+  </body>
+  
+</html>
