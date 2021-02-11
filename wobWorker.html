@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+  <body>
+    <script>
+      console.time("mayank")
+
+      function startWorker() {
+        var worker = new Worker("./worker/worker.js");
+      }
+
+      setTimeout(function() {
+        console.log("Executing...");
+      }, 2000)
+      for(let i = 0; i <= 3000000000; i++) {
+        if(i == 3000000000) {
+          console.log("done")
+        }
+      }
+      console.timeEnd("mayank")
+    </script>
+
+    <input type="button" onclick="startWorker()" value="startWorker" />
+  </body>
+</html>

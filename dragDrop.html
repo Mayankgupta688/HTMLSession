@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drag and Drop Functionality</title>
+  </head>
+
+  <body>
+
+    <style>
+      img {
+        width: 250px;
+        height: 250px;
+        margin-right: 20px;
+        border: 1px solid grey;
+      }
+
+      .category_div {
+        width: 300px;
+        height: 400px;
+        display: inline-block;
+        margin-right: 10px;
+        border: 1px solid blue;
+      }
+    </style>
+    <div>
+      <h1 id="salutation"></h1>
+      Enter User Name: <input id="user_name" type="text" />
+      <input type="button" value="Set Local Storage Name Value" onclick="addToLocalStorage()" ><br/><br/>
+
+      <div  style="margin-bottom: 10px; vertical-align: top;">
+        <div class="category_div" ondragover="allowDrop(event)" ondrop="drop(event)"><h2 style="padding-left: 10px;">Animal</h2></div>
+        <div class="category_div" ondragover="allowDrop(event)" ondrop="drop(event)"><h2 style="padding-left: 10px;">Person</h2></div>
+        <div class="category_div" ondragover="allowDrop(event)" ondrop="drop(event)"><h2 style="padding-left: 10px;">Fruits</h2></div>
+      </div>
+
+      <div>
+        <img id="image1" ondragstart="drag(event)" draggable="true" src="https://cdn.britannica.com/w:1100/80/140480-131-28E57753/Dromedary-camels.jpg" alt="Sample Images" />
+        <img id="image2" ondragstart="drag(event)" draggable="true" src="https://www.accenture.com/t20200622T032553Z__w__/cz-en/_acnmedia/Accenture/Redesign-Assets/DotCom/Images/Global/General/54/Accenture-Jim-Wilson-724x543.png" alt="Sample Images" />
+        <img id="image3" ondragstart="drag(event)" draggable="true" src="https://www.healthyeating.org/images/default-source/home-0.0/nutrition-topics-2.0/general-nutrition-wellness/2-2-2-3foodgroups_fruits_detailfeature_thumb.jpg?sfvrsn=7abe71fe_4" alt="Sample Images" />
+      </div>
+    </div>
+
+    <script>
+      debugger;
+
+
+      var user_data = localStorage.getItem("user_name");
+
+
+      if(user_data) {
+        document.getElementById("salutation").innerText = "Hello " + user_data
+      } else {
+        document.getElementById("salutation").innerText = "Hello Guest...."
+      }
+
+
+      function addToLocalStorage() {
+        debugger;
+        var valueOfInput = document.getElementById("user_name").value;
+
+        localStorage.setItem("user_name", valueOfInput)
+
+        document.getElementById("salutation").innerText = "Hello " + valueOfInput;
+        document.getElementById("user_name").value = "";
+      }
+
+      function drop(event) {
+        event.preventDefault();
+        var data = event.dataTransfer.getData("image_id");
+        event.target.appendChild(document.getElementById(data));
+      }
+
+      function allowDrop(event) {
+        event.preventDefault();
+      }
+
+      function drag(event) {
+        event.dataTransfer.setData("image_id", event.target.id);
+      }
+
+      window.onkeydown = function(event) {
+        //event.preventDefault();
+      }
+
+    </script>
+  </body>
+</html>
